@@ -1,0 +1,1 @@
+web: gunicorn Reposteria.wsgi --log-file -

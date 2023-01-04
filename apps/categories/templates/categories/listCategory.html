@@ -1,0 +1,70 @@
+{% extends "User's/Admin's/base.html" %}
+{% load static %}
+{% block css%}
+    <link rel="stylesheet" href="{% static 'css/profile/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <div class="fondo">
+            <div class="info">
+                <h2>Categorias</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {% if category_list %}
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand"></a>
+              <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-dark" type="submit">Search</button>
+                <a class="btn btn-light" href="{% url 'categories:addCategory'%}" style="margin-left: 1rem;">Agregar</a>
+              </form>
+              
+            </div>            
+        </nav>
+        <table class="table table-hover caption-top ">
+            <caption>LISTADO DE CATEGORIAS</caption>            
+            
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">NOMBRE DE LA CATEGORIA</th>
+                    <th scope="col">DESCRIPCION</th>
+                    
+                </tr>                
+            </thead>
+            <tbody>
+                {% for categoria in category_list %}
+                <tr>
+                    <th scope="row">{{categoria.id}}</th>
+                    <td>{{categoria.title}}</td>
+                    <td>{{categoria.description}}</td> 
+                                  
+                    
+                    <td>
+                        
+                        <a class="btn btn-outline-dark" >Detalle</a>
+                        <a href="{% url 'categories:updateCategories' categoria.id %}" class="btn btn-outline-dark">Editar</a>
+                        <a href="{% url 'categories:deleteCategories' categoria.id %}" class="btn btn-outline-dark">Eliminar</a>
+                    </td>
+                </tr>                
+                {% endfor%}                
+
+            </tbody>
+
+        </table>
+        {% else %}
+        <h3>NO HAY CATEGORIAS</h3>
+        <a href="{% url 'categories:addCategory'%}">AGREGAR</a>
+        {% endif %}
+
+    </div>
+
+</div>
+{% endblock%}

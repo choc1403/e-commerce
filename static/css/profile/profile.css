@@ -1,0 +1,35 @@
+
+main{
+    margin: 2rem 0 10rem 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+.fondo{
+    z-index: 1;
+    height: 10rem;    
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+    max-width: 100%;
+   
+    background-color: rgb(213, 216, 220);
+    margin-bottom: 3rem;
+    
+}
+
+.info{
+    text-align: center;
+}
+
+.informacion span{
+    margin-left: 0.5rem;   
+}
+.informacion{
+    margin-top: 1rem;
+}
+
+

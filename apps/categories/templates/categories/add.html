@@ -1,0 +1,42 @@
+{% extends "User's/Admin's/base.html" %}
+{% load static %}
+{% block css%}
+    <link rel="stylesheet" href="{% static 'css/profile/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <div class="fondo">
+            <div class="info">
+                <h2>Categorias</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <form method="post">
+        {%csrf_token%}
+        {% for field in form %}
+        <div class="form-group">
+
+
+            {{ field.label_tag }}
+            {{ field }}
+
+            {% if field.errors %}
+                {{ field.errors }}
+            {% endif %}
+
+        </div>
+        {% endfor %}
+        <br>
+        <div class="d-grid grap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-lg btn-dark ">{{info}}</button>
+        </div>
+
+
+    </form>
+</div>
+
+{% endblock %}

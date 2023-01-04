@@ -1,0 +1,71 @@
+{% extends "User's/Admin's/base.html" %}
+
+{% load static %}
+
+{% block css%}
+    <link rel="stylesheet" href="{% static 'css/profile/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="col-12 ">
+    <div class="col">
+        <div class="fondo">
+            <div class="info">
+                <h2>PERFIL DE AMINISTRADOR</h2>
+                <p>USUARIO REGISTRADO COMO: 
+                    <span
+                        style="color: rgb(86, 101, 115); margin-left: 1rem; font-weight: bold;">{{user.username}}
+                    </span>
+                </p>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h3>INFORMACION DEL ADMINISTRADOR</h3>
+
+        </div>
+        <div class="col informacion">
+            <h5>NOMBRE: <span class="text-muted"> {{user.first_name}} </span></h5>
+            <h5>APELLIDO: <span class="text-muted"> {{user.last_name}} </span></h5>
+            <h5>USUARIO: <span class="text-muted"> {{user.username}} </span></h5>
+            <h5>EMAIL: <span class="text-muted"> {{user.email}} </span></h5>
+
+        </div>
+    </div>
+    <h4 style="text-align: center; margin: 3rem 0;">INFORMACION GENERAL</h4>
+    <div class="row">
+        <div class="col">
+            <h5>USUARIOS REGISTRADOS: </h5>
+        </div>
+        <div class="col ">
+            <p>{{count_user}}</p>
+
+        </div>
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <h5>PRODUCTOS REGISTRADOS:</h5>
+        </div>
+        <div class="col ">
+            <p> {{count_product}}</p> 
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col">
+            <h5>PEDIDOS POR VALIDAR: </h5>
+        </div>
+        <div class="col">
+            <p>{{order_count}}</p>
+
+        </div>
+    </div>
+
+    
+</div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "User's/Admin's/base.html" %}
+{% load static %}
+{% block css%}
+    <link rel="stylesheet" href="{% static 'css/profile/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <div class="fondo">
+            <div class="info">
+                <h2>USUARIOS</h2>
+            </div>
+        </div>        
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        {% if object_list %}
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand"></a>
+              <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-dark" type="submit">Search</button>
+                <a class="btn btn-light" href="{% url 'users:addUser' %}" style="margin-left: 1rem;">Agregar</a>
+              </form>
+              
+            </div>
+            
+        </nav>
+        <table class="table table-hover caption-top ">
+            <caption>LISTADO DE USUARIOS</caption>            
+            
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">NOMBRE DEL USUARIO</th>
+                    <th scope="col">APELLIDO</th>
+                    <th scope="col">USUARIO</th>
+                    <th scope="col">CORREO ELECTRONICO</th>
+                </tr>                
+            </thead>
+            <tbody>
+                {% for user in object_list %}
+                {% if  not user.is_superuser %}
+                <tr>
+                    <th scope="row">{{user.id}}</th>
+                    <td>{{user.first_name}}</td>
+                    <td>{{user.last_name}}</td> 
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>               
+                    
+                    <td>
+                        
+                        <a class="btn btn-outline-dark" >Detalle</a>
+                        <a href="{% url 'users:updateUser' user.id %}" class="btn btn-outline-dark">Editar</a>
+                        <a class="btn btn-outline-dark">Eliminar</a>
+                    </td>
+                </tr>
+                {%endif%}                
+                {% endfor%}                
+
+            </tbody>
+
+        </table>
+        {% else %}
+        <h3>NO HAY USUARIOS</h3>
+        {% endif %}
+    </div>
+</div>
+{% endblock%}

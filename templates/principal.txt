@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">    
+{% endblock %}
+
+
+{% block header %}
+    <header class="header content">
+        <!-- 
+        <div class="header-video">       
+            <video id="video" loop="loop" autoplay="autoplay" preload="auto" muted="muted">
+                <source type="video/mp4" src="{% static 'video/fondo.mp4'%}"/>
+            </video>
+        </div>-->
+        <div class="header-overlay"></div>
+        <div class="header-content">
+            <h1>PAGINA WEB</h1>
+            <p>En construccion</p>
+            <div id="cuenta"></div>
+            <button id ="button" type="submit" onclick="hizoClick()" class="btn btn-outline-light" >REGISTRARSE</button>
+        </div>
+    </header>
+{% endblock %}
+            {% block content %}
+                <div class="col">
+                    <button type="button" accesskey="b" style="visibility: hidden;" id="show">Mostrar botón acción</button>
+                </div>
+            {% endblock%}
+
+
+{% block js %}
+    <script src="{% static 'js/simplyCountdown.min.js' %}"></script>
+    <script src="{% static 'js/countDown.js' %}"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $('#button').hide();
+        $('body').on("keydown", function(e) { 
+            if (e.ctrlKey && e.shiftKey && e.which === 83) {            
+                e.preventDefault();
+                $('#button').show();
+            }
+        });
+            
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+{% endblock %}
+

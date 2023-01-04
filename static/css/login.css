@@ -1,0 +1,41 @@
+main {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.estilo{   
+    background: white;
+    border-radius: 12px;    
+}
+
+.par{    
+    color: black;
+    border-radius: 1rem;
+    display: block;
+    text-align: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.par h1{
+    margin-top: 3rem;
+    font-weight: 700;
+}
+
+
+.formulario label{
+    font-weight: 700;   
+    
+}
+
+.formulario input{
+    margin-bottom: 1rem;
+}
+
+.formulario a{
+    margin-bottom: 1rem;
+}
+
+

@@ -1,0 +1,20 @@
+<h1>COMENTARIOS</h1>
+<div class="row g-2">
+    <div class="mb-3">
+        <form method="post" action="{% url 'Comments:add'%}">
+            {%csrf_token%}
+            <input type="hidden" name="product_id" value="{{product.id}}">
+            <input type="hidden" name="product_slug" value="{{product.slug}}">
+            
+            <label class="form-label" for="comentario">Comentario</label>
+            <textarea class="form-control" name="comentario" rows="3"></textarea>
+            <button class="btn btn-dark" type="submit">COMENTAR</button>
+
+
+        </form>
+        
+        
+    </div>
+    
+
+</div>

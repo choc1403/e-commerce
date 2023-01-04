@@ -1,0 +1,5 @@
+Orden En Espera    
+Orden Tomada
+Orden Completada
+Orden Cancelada
+            

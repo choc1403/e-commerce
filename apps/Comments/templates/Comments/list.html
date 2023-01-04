@@ -1,0 +1,27 @@
+{% if comentario_list %}
+<input type="hidden" name="product_id" value="{{product.id}}">
+<input type="hidden" name="product_slug" value="{{product.slug}}">
+
+    <h2>TODOS LOS COMENTARIOS</h2>
+    {% for comentario in comentario_list %}
+
+
+    <div class="card">
+        <div class="card-header">
+            <h5>{{comentario.user}}</h5>
+
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{comentario.product}}</h5>
+            <p class="card-text text-center">{{comentario.comentario}}</p>
+
+        </div>
+        
+
+    </div>
+    <br>
+
+    {%endfor%}
+{% else %}
+    <h2>NO HAY COMENTARIOS</h2>
+{% endif %}

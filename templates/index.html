@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+{% endblock %}
+
+
+{% block slide %}
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel"
+    style="margin-bottom: 3rem; ">
+
+    <div class="carousel-inner">
+        
+
+        <div class="carousel-item active" data-bs-interval="10000">
+
+            <div class="slide">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-4 slide-content-start">
+                            <div class="informacion">
+                                <h2 class="p1" style="color: red;">SPECIAL</h2>
+                                <h2 class="p1" style="font-weight: bold;">PRODUCTO</h2>
+                                <p style="font-weight: lighter;">LA PAGINA AUN SE ENCUENTRA EN CONSTRUCCION</p>
+                                {% if not user.is_authenticated %}
+                                <div class="center">
+                                    <a class="btn btn-outline-dark p2" href="{% url 'users:signUp' %}">
+                                        REGISTRARSE</a>
+
+                                </div>
+                                {%else%}
+
+                                {%endif%}
+                                
+                            </div>
+                        </div>
+                        <div class="col-8 slide-img-content-end">
+                            <div class="slide-img">
+                                <img src="{% static 'img/cupcake01.jpg'%}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+
+            <div class="slide">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-8 slide-img-content-start">
+                            <div class="slide-img">
+                                <img src="{% static 'img/cinnamon01.jpg'%}">
+                            </div>
+
+
+                        </div>
+                        <div class="col-4 slide-content-end">
+                            <div class="informacion">
+                                <h2 class="p1" style="color: red;">SPECIAL</h2>
+                                <h2 class="p1" style="font-weight: bold;">PRODUCTO</h2>
+                                <p style="font-weight: lighter;">LA PAGINA AUN SE ENCUENTRA EN CONSTRUCCION</p>
+                                {% if not user.is_authenticated %}
+                                
+                                    <a class="btn btn-outline-dark p2" href="{% url 'users:signUp' %}">
+                                        REGISTRARSE</a>
+
+                                
+                                {%else%}
+                                
+                                {%endif%}
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+
+
+</div>
+{% endblock%}
+
+{% block content %}
+<!--CLASIFICACION-->
+<div class="row" style="text-align: center; height: 45vh; align-items: center; justify-content: center;">
+    
+    <div class="col" style="font-weight: bold;">
+
+        <h3 class="p1" style="color: red;">LISTADO DE PRODUCTOS</h3>
+        <p class="p2" style="color: red;">PRONTO HABRA MAS INFORMACION PARA ESTE APARTADO</p>
+
+    </div>
+
+</div>
+<hr class="dropdown-divider">
+<!--APARTADO DE LA INFORMACION DE LA EMPRESA-->
+<div class="row p2" style="text-align: center; display: flex; align-items: center; justify-content: center; margin: 3rem 0; height: 25vh;">
+    <div class="col-12" id="SobreNosotros"  >
+        <h2 class="text-center" style="font-size: 3rem; font-weight: bolder;">WEB</h2>
+  
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
+            placeat velit quam aliquam, exercitationem ipsa soluta deserunt quaerat ratione amet!
+            Voluptates totam fugiat suscipit pariatur fuga porro quibusdam expedita reprehenderit.</p>
+
+    </div>
+</div>
+<hr class="dropdown-divider">
+<!--APARTADO DE LA INFORMACION DEL COFUNDADOR-->
+<div class="row p2" style="height: 50vh; margin-bottom: 3rem; margin-top: 3rem;">
+
+    <div class="col-4" style="display: flex; align-items: center; justify-content: center; height: 45vh;">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+            role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+        </svg>
+
+    </div>
+    <div class="col-8" style="display: flex; align-items: center; justify-content: end; height: 45vh;">
+        <div class="col">
+            <h3 style="font-weight: bold; text-align: end; font-size: 2rem;">NAME</h3>
+            <p style="font-weight: lighter; text-align: end;">COFUNDADOR@</p>
+            <p style="text-align: end;">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Ipsa consequuntur impedit minima itaque porro nostrum voluptate fuga eveniet fugiat id labore,
+                facere rem totam, officia laborum? Veniam voluptatum sit deleniti!</p>
+
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+{% endblock%}

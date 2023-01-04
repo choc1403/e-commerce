@@ -1,0 +1,20 @@
+<!--Mostrando las opciones de categorias que existe-->
+<div class="col-12"style="font-size: 1rem; text-align: center; margin-bottom: 1rem; background-color: rgb(236, 236, 236);border-radius: 0.5rem; ">
+  Categorias de productos
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+  <label class="form-check-label" for="flexRadioDefault2">
+    Todos los productos
+  </label>
+</div>
+{% for categoria in category_list %}
+<div class="form-check">
+  
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" >
+  <label class="form-check-label" for="flexRadioDefault2">
+    {{categoria.title}}
+  </label>
+  
+</div>
+{% endfor %}

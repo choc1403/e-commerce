@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/register.css'%}">
+{% endblock %}
+
+
+{% block content %}
+<div class="row">
+    <div class="col-6 par">
+        <h1>REGISTER</h1>
+        <p>PAGINA EN CONSTRUCCION</p>
+    </div>
+    <div class="col-6 formulario">
+        <div class="col-2">
+
+        </div>
+        <div class="col-10">
+            <a href="{% url 'login' %}" class="actions">X</a>
+            <form method="POST">
+                {% csrf_token %}
+                {% for field in form %}
+                {% if field.name != 'password1' and field.name != 'password2'%}
+                <div class="form-group">
+
+
+                    {{ field.label_tag }}
+                    {{ field }}
+
+                    {% if field.errors %}
+                    {{ field.errors }}
+                    {% endif %}
+
+                </div>
+                {% else %}
+
+                {% if field.name == 'password1' %}
+                <div class="form-gropu">
+                    <label for="password1">Contraseña</label>
+                    <input type="password" name="password1" class="form-control">
+                </div>
+                
+                {%endif%}
+
+                {% if field.name == 'password1' %}
+                <div class="form-gropu">
+                    <label for="password2">Confirmar Contraseña</label>
+                    <input type="password" name="password2" class="form-control">
+                </div>
+                
+                {%endif%}
+                {% if field.errors %}
+                    {{ field.errors }}
+                {% endif %}
+
+
+                {% endif %}
+
+
+                {% endfor %}
+
+                <br>
+                <div class="d-grid grap-2 col-6 mx-auto">
+                    <button type="submit" class="btn btn-lg btn-dark ">REGISTER</button>
+                </div>
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</div>
+{% endblock %}

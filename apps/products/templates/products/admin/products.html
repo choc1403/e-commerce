@@ -1,0 +1,86 @@
+{% extends "User's/Admin's/base.html" %}
+{% load static %}
+{% block css%}
+    <link rel="stylesheet" href="{% static 'css/profile/profile.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <div class="fondo">
+            <div class="info">
+                <h2>PRODUCTOS</h2>           
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col ">
+        {% if product_list %}
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand"></a>
+              <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-dark" type="submit">Search</button>
+                <a class="btn btn-light" href="{% url 'products:addProduct'%}" style="margin-left: 1rem;">Agregar</a>
+              </form>
+              
+            </div>
+            
+        </nav>
+        
+        
+        <table class="table table-hover caption-top ">
+            <caption>LISTADO DE PRODUCTOS</caption>            
+            
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">NOMBRE DEL PRODUCTO</th>
+                    <th scope="col">CATEGORIA</th>
+                    <th  scope="col">ACCIONES</th>
+                </tr>                
+            </thead>
+            <tbody>
+                {% for producto in product_list %}
+                <tr>
+                    <th scope="row">{{producto.id}}</th>
+                    <td>{{producto.title}}</td>                
+                    <td>
+                        <ul>
+                            {% for categoria in producto.category.all %}
+                            <li> {{categoria.title}} </li>
+                            {%endfor%}
+                        </ul>
+                        
+                    </td>
+                    <td>
+                        
+                        <a href="{% url 'products:ProductoDetalle' producto.slug producto.id %}" class="btn btn-outline-dark" >Detalle</a>
+                        <a href="{% url 'products:updateProduct' producto.id%}" class="btn btn-outline-dark">Editar</a>
+                        <a href="{% url 'products:deleteProduct' producto.id %}" class="btn btn-outline-dark">Eliminar</a>
+                    </td>
+                </tr>                
+                {% endfor%}                
+
+            </tbody>
+
+        </table>
+
+        
+        
+        
+        {% else %}
+        <a class="btn btn-light" href="{% url 'products:addProduct'%}" style="margin-left: 1rem;">Agregar</a>
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}
+<!--Ya cuando se esten las siguientes funciones de crud en el href debe ir como
+                    {% url 'products:name' producto.id %}
+                    -->

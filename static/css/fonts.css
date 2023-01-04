@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;500&family=Roboto:ital,wght@0,400;0,700;1,400&family=Rubik+Glitch&display=swap');
+
+/*
+TITULO: {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+}
+
+Texto: {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Raleway', sans-serif;
+}
+
+Anuncio: {
+    font-family: 'Rubik Glitch', cursive;
+}
+*/
+
+.hh1{
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+.p1{
+    font-family: 'Raleway', sans-serif;   
+       
+}
+
+.p2{
+    font-family: 'Roboto', sans-serif;
+}
+
+.p3{
+    font-family: 'Rubik Glitch', cursive;
+}
+
+
+/*
+PALETA DE COLORES
+*/
+
+.color1{
+    background-color: rgb(86, 101, 115);    
+}
+
+.color2{
+    background-color: rgb( 44, 62, 80);
+}
+
+.color3{
+    background-color: rgb(234, 236, 238 ) ;
+}
+
+.color4{
+    background-color: rgb( 213, 216, 220);
+}
+
+.color5{
+    background-color: rgb(23, 32, 42);
+}
+
+.color6{
+    background-color: rgb( 112, 123, 124);
+}

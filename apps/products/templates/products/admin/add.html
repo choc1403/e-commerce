@@ -1,0 +1,76 @@
+{% extends "User's/Admin's/base.html" %}
+{% load static %}
+{% block css%}
+    <link rel="stylesheet" href="{% static 'css/profile/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <div class="fondo">
+            <div class="info">
+                <h2>PRODUCTOS</h2>           
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+        {% if field.name != 'category'%}
+        <div class="form-group">
+
+
+            {{ field.label_tag }}
+            {{ field }}
+
+            {% if field.errors %}
+                {{ field.errors }}
+            {% endif %}
+
+        </div>
+        {% else %}
+        {% if field.name == 'category' %}
+        <div class="row" style="margin-top: 2rem;">
+            <div class="col">
+                <div class="form-group">
+                    <div class="col">
+                        {{ field.label_tag }}
+                        {{ field }}
+        
+                        {% if field.errors %}
+                            {{ field.errors }}
+                        {% endif %}
+                        <a href="{%url 'categories:addCategory' %}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard2-plus" viewBox="0 0 16 16">
+                            <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z"/>
+                            <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z"/>
+                            <path d="M8.5 6.5a.5.5 0 0 0-1 0V8H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V9H10a.5.5 0 0 0 0-1H8.5V6.5Z"/>
+                          </svg>AGREGAR MAS
+                        </a>
+        
+                    </div>
+                    
+                    
+                   
+                </div>
+
+            </div>
+            
+
+        </div>
+        
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        <br>
+        <div class="d-grid grap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-lg btn-dark ">{{info}}</button>
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}
