@@ -20,7 +20,7 @@ from django.http import HttpResponseRedirect
 
 # DECORADORES
 from django.contrib.auth.mixins import UserPassesTestMixin
-from .utils import breadcrumb
+from .utils import breadcrumb, breadcrum_detail
 
 # forms
 from .forms import ProductForm
@@ -45,13 +45,17 @@ class Producto(ListView):
 
 
 def detailProduct(request,slug,pk):
-    product = Product.objects.get(pk=pk)
+    product = Product.objects.get(pk=pk)  
     slug = Product.objects.get(slug=slug)
     us = request.user.id
+    estrelas=['1','2','3','4','5']
+
+   
 
     filtro = Comentario.objects.filter(Q(product=pk))
     fav = favorito.objects.filter(Q(producto=pk) & Q(usuario=us))
     product_exists = Product.objects.all()
+    
 
     context = {
         'title': slug,
@@ -59,6 +63,9 @@ def detailProduct(request,slug,pk):
         'comentario_list':filtro,
         'favorito_list':fav,
         'product_exist': product_exists,
+        'breadcrumb':breadcrum_detail(nombre=product),
+        'estrella':estrelas
+        
 
     }
     return render(request, 'products/detail.html', context)

@@ -29,6 +29,9 @@ class Product(models.Model):
     def get_price(self):
         return 'Q {}'.format(self.price)
 
+    def get_title(self):
+        return self.title
+
 
 def set_slug(sender, instance, *args, **kwargs): #callback
     if instance.title and not instance.slug:
